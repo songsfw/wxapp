@@ -1,0 +1,12 @@
+project.config.json
+\.vscode/
+
+pages/localTest/
+
+project.private.config.json
+
+wechat-xcx/functions/pquery/node_modules/
+
+wechat-xcx/functions/send/node_modules/
+
+wechat-xcx/functions/subscribe/node_modules/

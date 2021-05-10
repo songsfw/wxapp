@@ -49,3 +49,21 @@
         }
     ]
 }
+{
+    "_id": "4fb129165fc1ba0b007aa0ac6401caf0",
+    "title": "打车",
+    "icon": "cloud://maidaigou-4g5zv6qr65613d1b.6d61-maidaigou-4g5zv6qr65613d1b-1304566728/waimai/vip.png",
+    "coupon": [
+        {
+            "name": "花小猪大额红包",
+            "icon": "cloud://maidaigou-4g5zv6qr65613d1b.6d61-maidaigou-4g5zv6qr65613d1b-1304566728/waimai/vip.png",
+            "bannerPic": "cloud://maidaigou-4g5zv6qr65613d1b.6d61-maidaigou-4g5zv6qr65613d1b-1304566728/waimai/huaxiaozhu.jpg",
+            "url": "",
+            "type": 1.0,
+            "minapp": {
+                "appid": "wxd98a20e429ce834b",
+                "path": "pages/index/index?scene=ZqrGJL1&xpsid=115aa84cee124b4b9b7da42ce1dd5812&entrance_channel=&g_channel=8b658d6ecaa5b8285c9b36f27dc81af1&channel_id=2001001001&share_code=bvgol7rb7k543v0tp52g&city_id=355"				
+            }
+		}
+    ]
+}

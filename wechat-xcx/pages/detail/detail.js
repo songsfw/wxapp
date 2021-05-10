@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods_id: [],
+    goods_sign: [],
     search_id: "",
     detail: null,
   },
@@ -15,10 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.goods_id =  options["gid"];
+    console.log(options);
+    this.data.goods_sign =  options["gid"];
     this.data.search_id = options["search_id"];
     this.setData({
-      goods_id: options["gid"],
+      goods_sign: options["gid"],
       search_id: options["search_id"],
     });
     this.reloadData();
@@ -38,12 +39,26 @@ Page({
     wx.cloud.callFunction({
       name: "pquery",
       data: {
+        auth: true
+      }
+    })
+    .then(res => {
+      console.log(res);
+      
+
+    }).catch(err => {
+      
+    });
+    wx.cloud.callFunction({
+      name: "pquery",
+      data: {
         detail: true,
-        goods_id_list: `[${this.data.goods_id}]`,
+        goods_sign: `${this.data.goods_sign}`,
         search_id: this.data.search_id,
       }
     })
     .then(res => {
+      console.log(res);
       if (res.result && res.result._status === 0 && res.result.data && res.result.data.goods_detail_response && res.result.data.goods_detail_response.goods_details) {
         const list = res.result.data.goods_detail_response.goods_details;
         if (list && list.length > 0) {
@@ -65,7 +80,7 @@ Page({
     this.reloadData();
   },
   onShareAppMessage: function(e) {
-    let path = '/pages/detail/detail?gid=' + this.data.goods_id + '&search_id=' + this.data.search_id;
+    let path = '/pages/detail/detail?gid=' + this.data.goods_sign + '&search_id=' + this.data.search_id;
     return {
       title: "这里有好多拼多多券饿了么美团外卖券滴滴花小猪打车券可以领取哦~",
       path: path,
@@ -73,7 +88,7 @@ Page({
     };
   },
   onShareTimeline: function (res) {
-    let path = '/pages/detail/detail?gid=' + this.data.goods_id + '&search_id=' + this.data.search_id;
+    let path = '/pages/detail/detail?gid=' + this.data.goods_sign + '&search_id=' + this.data.search_id;
     return {
       title: '这里有好多拼多多券饿了么美团外卖券滴滴花小猪打车券可以领取哦~',
       path: path,
@@ -82,6 +97,7 @@ Page({
     }
   },
   buy() {
+    console.log(this.data);
     wx.showLoading({
       title: '处理中...',
     });
@@ -89,8 +105,9 @@ Page({
       name: "pquery",
       data: {
         generate: true,
-        goods_id_list: `[${this.data.goods_id}]`,
-        search_id: this.data.search_id,
+        goods_sign_list: `[\"${this.data.goods_sign}\"]`,
+        search_id: this.data.search_id
+        
       }
     }).then(res => {
       wx.hideLoading();
@@ -98,6 +115,7 @@ Page({
         const list = res.result.data.goods_promotion_url_generate_response.goods_promotion_url_list;
         if (list.length > 0) {
           const r = list[0];
+          console.log(r);
           if (r.we_app_info) {
             wx.navigateToMiniProgram({
               appId: r.we_app_info.app_id,
@@ -107,6 +125,7 @@ Page({
         }
       }
     }).catch(err => {
+      console.log(err);
       wx.hideLoading();
     });
   },

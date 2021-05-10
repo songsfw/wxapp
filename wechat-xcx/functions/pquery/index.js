@@ -2,7 +2,7 @@
 const cloud = require("wx-server-sdk");
 const axios = require("axios");
 const utils = require("./pdd/utils");
-cloud.init();
+cloud.init({env: cloud.DYNAMIC_CURRENT_ENV});
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -18,6 +18,17 @@ exports.main = async (event, context) => {
     page: event.page ? event.page : 1,
     block_cat_packages: `[1,2]`,
   };
+  // 是否授权
+  if (event.auth) {
+    is_search = false;
+    args = {
+      client_id: utils.CLIENTID,
+      data_type: "JSON",
+      timestamp: utils.timestamp(),
+      type: "pdd.ddk.member.authority.query",
+      pid: utils.PDDPID
+    };
+  }
   // 子分类
   if (event.stype) {
     is_search = false;
@@ -42,10 +53,13 @@ exports.main = async (event, context) => {
       timestamp: utils.timestamp(),
       type: "pdd.ddk.goods.promotion.url.generate",
       p_id: utils.PDDPID,
-      goods_id_list: event.goods_id_list,
+      goods_sign_list: event.goods_sign_list,
       search_id: event.search_id,
-      generate_we_app: true,
+      generate_we_app: true
     };
+  }
+  if (event.auth) {
+    args["generate_authority_url"] = true
   }
   // 详情
   if (event.detail) {
@@ -56,7 +70,7 @@ exports.main = async (event, context) => {
       timestamp: utils.timestamp(),
       type: "pdd.ddk.goods.detail",
       pid: utils.PDDPID,
-      goods_id_list: event.goods_id_list,
+      goods_sign: event.goods_sign,
       search_id: event.search_id,
     };
   }
@@ -83,6 +97,7 @@ exports.main = async (event, context) => {
     });
     if (is_search) {
       let r = result.data;
+      console.log(r);
       if (r.goods_search_response && r.goods_search_response.goods_list) {
         let t_list = [];
         for (let g of r.goods_search_response.goods_list) {
