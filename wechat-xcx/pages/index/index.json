@@ -4,6 +4,7 @@
      "add-tips": "/components/add-tips/index"
 
   },
+  "navigationBarTitleText": "拼多多优惠集合",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 60,
     "navigationBarBackgroundColor": "#0bb9b6",

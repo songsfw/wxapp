@@ -58,9 +58,9 @@ exports.main = async (event, context) => {
       generate_we_app: true
     };
   }
-  if (event.auth) {
-    args["generate_authority_url"] = true
-  }
+  // if (event.auth) {
+  //   args["generate_authority_url"] = true
+  // }
   // 详情
   if (event.detail) {
     is_search = false;

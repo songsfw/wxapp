@@ -3,6 +3,16 @@
 page {
   background-color: #f8f8f8;
 }
+.btn{
+  width: 100%;
+  height: 78rpx;
+  line-height: 78rpx;
+  background: linear-gradient(90deg, #F87758 0%, #F73950 100%);
+  border-radius: 20rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+}
 
 .container {
   font-size: 14px;
@@ -30,29 +40,18 @@ page {
 }
 
 .container .coupon .item .top {
-  height: 116rpx;
+  height: 95rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.container .coupon .item .top .left {
-  height: 116rpx;
-  width: 400rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.container .coupon .item .top .left .content {
-  width: 100%;
-}
-
-.container .coupon .item .top .left .icon {
+.container .coupon .item .top .icon {
   display: inline-block;
   vertical-align: bottom;
   width: 52rpx;
   height: auto;
+  margin-right: 20rpx;
 }
 
 .container .coupon .item .top .left .name {
@@ -66,14 +65,14 @@ page {
   margin-left: 15rpx;
 }
 
-.container .coupon .item .top .left .text {
+.container .coupon .item .top .text {
   width: 150rpx;
   height: 38rpx;
   line-height: 38rpx;
   text-align: center;
   font-size: 24rpx;
-  color: #61300e;
-  background: linear-gradient(90deg, #f9db8d, #f8d98a);
+  color: #fff;
+  background: linear-gradient(to right,#ffa052,#f52422);
   border-radius: 6rpx;
 }
 
@@ -89,16 +88,13 @@ page {
 }
 
 .container .coupon .item .bottom {
-  height: auto;
+  height: 361rpx;
   width: 100%;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
 }
 
-.container .coupon .item .bottom image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 20rpx;
-}
 .loading {
     text-align: center;
 }

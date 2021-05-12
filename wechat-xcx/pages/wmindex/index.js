@@ -22,7 +22,7 @@ Page({
     onLoad: function (options) {
         db.collection('coupons').get().then(res => {
             const tabs = res.data
-            console.log(tabs)
+            console.log(res)
 
             let all = {
                 title: '全部',
@@ -43,6 +43,7 @@ Page({
         })
 
         db.collection('share-message').get().then(res => {
+          console.log(res);
             const messages = res.data
 
             let idx = Math.floor(Math.random() * messages.length)

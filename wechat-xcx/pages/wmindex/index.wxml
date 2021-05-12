@@ -12,21 +12,22 @@
             <view class="container">
                 <view class="coupon">
                     <view class="item" wx:for="{{item.coupon}}" wx:for-index="i" wx:for-item="v">
-                        <view class="top">
-                            <view class="left">
-                                <view class="content">
-                                    <image src="{{v.icon}}" class="icon" mode="widthFix" />
-                                    <view class="name">{{ v.name }}</view>
-                                </view>
-                                <view class="text" wx:if="{{v.type == 1}}">天天可领</view>
-                                <view class="text" wx:elif="{{v.type == 2}}">限时秒杀</view>
-                                <view class="text" wx:elif="{{v.type==3}}">限时秒杀</view>
+                        <view class="top flex">
+
+                            <view class="content flex">
+                                <image src="{{v.icon}}" class="icon" mode="widthFix" />
+                                <view class="name">{{ v.name }}</view>
                             </view>
-                            <view class="right" data-index="{{i}}" bindtap="toCoupon">免费领取</view>
+                            <view class="text" wx:if="{{v.type == 1}}">天天可领</view>
+                            <view class="text" wx:elif="{{v.type == 2}}">限时秒杀</view>
+                            <view class="text" wx:elif="{{v.type==3}}">限时秒杀</view>
+
+                            
                         </view>
                         <view class="bottom">
-                            <image src="{{v.bannerPic}}" mode="widthFix" data-index="{{i}}" bindtap="toCoupon" />
+                            <image src="{{v.bannerPic}}"  data-index="{{i}}" bindtap="toCoupon" />
                         </view>
+                        <view class="btn" data-index="{{i}}" bindtap="toCoupon">免费领取</view>
                     </view>
                 </view>
             </view>

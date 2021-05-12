@@ -121,6 +121,23 @@ Page({
     this.loadNext();
   },
   reloadData() {
+    // wx.login({
+    //   success (res) {
+    //     if (res.code) {
+    //       //发起网络请求
+    //       wx.request({
+    //         url:`https://api.weixin.qq.com/sns/jscode2session?appid=wxbd6f08f5916c6ba5&secret=92f36c04572641195fedd664241698c1&js_code=${res.code}&grant_type=authorization_code`,
+    //         method: 'GET',
+    //         success: function (res) {
+    //           console.log(res)
+    //         }
+    //       })
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
+    
     wx.showLoading({
       title: '加载中...',
     })

@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "外卖优惠集合",
     "usingComponents": {
         "van-tab": "../../components/dist/tab/index",
         "van-tabs": "../../components/dist/tabs/index",

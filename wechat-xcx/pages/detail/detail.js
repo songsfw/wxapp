@@ -36,19 +36,19 @@ Page({
     wx.showLoading({
       title: '加载中...',
     });
-    wx.cloud.callFunction({
-      name: "pquery",
-      data: {
-        auth: true
-      }
-    })
-    .then(res => {
-      console.log(res);
+    // wx.cloud.callFunction({
+    //   name: "pquery",
+    //   data: {
+    //     auth: true
+    //   }
+    // })
+    // .then(res => {
+    //   console.log(res);
       
 
-    }).catch(err => {
+    // }).catch(err => {
       
-    });
+    // });
     wx.cloud.callFunction({
       name: "pquery",
       data: {
